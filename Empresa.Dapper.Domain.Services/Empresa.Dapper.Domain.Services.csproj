@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Base\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Empresa.Dapper.Domain.Core\Empresa.Dapper.Domain.Core.csproj" />
     <ProjectReference Include="..\Empresa.Dapper.Domain\Empresa.Dapper.Domain.csproj" />
   </ItemGroup>

@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Notificacoes\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Empresa.Dapper.Domain\Empresa.Dapper.Domain.csproj" />
     <ProjectReference Include="..\Empresa.Dapper.Infrastructure.Identity\Empresa.Dapper.Infrastructure.Identity.csproj" />
   </ItemGroup>
