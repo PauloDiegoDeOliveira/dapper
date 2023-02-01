@@ -34,14 +34,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Configuration\" />
-    <Folder Include="Extensions\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="V1\Controllers\" />
-    <Folder Include="V2\Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Empresa.Dapper.Infrastructure.Identity\Empresa.Dapper.Infrastructure.Identity.csproj" />
     <ProjectReference Include="..\Empresa.Dapper.Infrastructure\Empresa.Dapper.Infrastructure.csproj" />
   </ItemGroup>

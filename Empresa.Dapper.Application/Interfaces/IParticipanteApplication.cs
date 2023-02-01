@@ -1,4 +1,5 @@
 ﻿using Empresa.Dapper.Application.Dtos.Pagination;
+using Empresa.Dapper.Application.Dtos.Participante;
 using Empresa.Dapper.Application.Interfaces.Base;
 using Empresa.Dapper.Domain.Entitys;
 using Empresa.Dapper.Domain.Pagination;

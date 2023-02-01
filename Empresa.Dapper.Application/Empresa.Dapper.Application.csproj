@@ -7,17 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Applications\Base\" />
     <Folder Include="Attributes\" />
-    <Folder Include="Dtos\" />
-    <Folder Include="Interfaces\Base\" />
-    <Folder Include="Mappers\" />
     <Folder Include="Utilities\Hash\" />
     <Folder Include="Utilities\Image\" />
     <Folder Include="Utilities\Text\" />
     <Folder Include="Utilities\Paths\" />
-    <Folder Include="Validations\" />
-    <Folder Include="Structs\" />
   </ItemGroup>
 
   <ItemGroup>
