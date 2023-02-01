@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Interfaces\Repositories\Base\" />
+    <Folder Include="Interfaces\Service\Base\" />
+    <Folder Include="Notificacoes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Empresa.Dapper.Domain\Empresa.Dapper.Domain.csproj" />
+    <ProjectReference Include="..\Empresa.Dapper.Infrastructure.Identity\Empresa.Dapper.Infrastructure.Identity.csproj" />
+  </ItemGroup>
+
+</Project>
