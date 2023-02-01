@@ -139,7 +139,7 @@ namespace Empresa.Dapper.API.V1.Controllers
         [HttpPut("status")]
         [ProducesResponseType(typeof(ViewParticipanteDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> PutStatusAsync([FromForm] StatusParametroDto statusParametroDto)
+        public async Task<IActionResult> PutStatusAsync([FromBody] StatusParametroDto statusParametroDto)
         {
             if (statusParametroDto.Status == 0)
             {
