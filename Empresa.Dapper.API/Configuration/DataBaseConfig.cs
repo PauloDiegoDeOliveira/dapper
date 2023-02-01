@@ -7,6 +7,8 @@ namespace Empresa.Dapper.API.Configuration
     {
         public static void AddDatabaseConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
+            // services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase(databaseName: "DbFake"));
+
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("Connection")));
         }
 

@@ -9,7 +9,7 @@ namespace Empresa.Dapper.Infrastructure.Data
         {
         }
 
-        public DbSet<Participante> Participante { get; set; }
+        public DbSet<Participante> Participantes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

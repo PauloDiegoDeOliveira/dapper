@@ -85,7 +85,7 @@ namespace Empresa.Dapper.API.Configuration
         {
             var info = new OpenApiInfo()
             {
-                Title = "Carreiras",
+                Title = "Dapper",
                 Version = description.ApiVersion.ToString(),
                 Description = "Esta API faz parte do projeto Dapper.",
                 Contact = new OpenApiContact

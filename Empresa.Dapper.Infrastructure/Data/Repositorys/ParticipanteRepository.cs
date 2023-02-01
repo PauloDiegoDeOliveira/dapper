@@ -32,7 +32,7 @@ namespace Empresa.Dapper.Infrastructure.Data.Repositorys
 
             using (SqlConnection conexao = new SqlConnection(connectionString))
             {
-                string query = "Select * from participantes";
+                string query = @"SELECT [Id], [Nome], [Sobrenome], [CPF], [Status], [CriadoEm], [AlteradoEm] from [Dapper].[dbo].[Participantes]";
                 List<Participante> participantes = (await conexao.QueryAsync<Participante>(sql: query)).ToList();
 
                 return await Task.FromResult(PagedList<Participante>.ToPagedList(participantes.AsQueryable(), parametersPalavraChave.NumeroPagina, parametersPalavraChave.ResultadosExibidos));
