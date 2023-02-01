@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Empresa.Dapper.Domain.Core.Interfaces.Repositories;
 using Empresa.Dapper.Domain.Entitys;
+using Empresa.Dapper.Domain.Pagination;
 using Empresa.Dapper.Infrastructure.Data.Repositorys.Base;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +24,19 @@ namespace Empresa.Dapper.Infrastructure.Data.Repositorys
         {
             string connection = configuration.GetSection("ConnectionStrings").GetSection("Connection").Value;
             return connection;
+        }
+
+        public async Task<PagedList<Participante>> GetPaginationAsync(ParametersPalavraChave parametersPalavraChave)
+        {
+            string connectionString = this.GetConnection();
+
+            using (SqlConnection conexao = new SqlConnection(connectionString))
+            {
+                string query = "Select * from participantes";
+                List<Participante> participantes = (await conexao.QueryAsync<Participante>(sql: query)).ToList();
+
+                return await Task.FromResult(PagedList<Participante>.ToPagedList(participantes.AsQueryable(), parametersPalavraChave.NumeroPagina, parametersPalavraChave.ResultadosExibidos));
+            }
         }
     }
 }
