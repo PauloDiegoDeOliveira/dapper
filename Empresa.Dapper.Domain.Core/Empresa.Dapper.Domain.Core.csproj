@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\Repositories\Base\" />
-    <Folder Include="Interfaces\Service\Base\" />
     <Folder Include="Notificacoes\" />
   </ItemGroup>
 
