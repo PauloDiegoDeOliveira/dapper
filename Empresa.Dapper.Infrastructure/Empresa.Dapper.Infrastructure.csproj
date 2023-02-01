@@ -11,4 +11,25 @@
     <Folder Include="Data\Repositorys\Base\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Empresa.Dapper.Application\Empresa.Dapper.Application.csproj" />
+    <ProjectReference Include="..\Empresa.Dapper.Domain.Core\Empresa.Dapper.Domain.Core.csproj" />
+    <ProjectReference Include="..\Empresa.Dapper.Domain.Services\Empresa.Dapper.Domain.Services.csproj" />
+    <ProjectReference Include="..\Empresa.Dapper.Domain\Empresa.Dapper.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
