@@ -3,6 +3,7 @@ using Empresa.Dapper.Domain.Core.Interfaces.Repositories;
 using Empresa.Dapper.Domain.Entitys;
 using Empresa.Dapper.Domain.Pagination;
 using Empresa.Dapper.Infrastructure.Data.Repositorys.Base;
+using Empresa.Dapper.Infrastructure.Data.Repositorys.ScriptsSql;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 
@@ -32,7 +33,7 @@ namespace Empresa.Dapper.Infrastructure.Data.Repositorys
 
             using (SqlConnection conexao = new SqlConnection(connectionString))
             {
-                string query = @"Select [Id], [Nome], [Sobrenome], [CPF], [Status], [CriadoEm], [AlteradoEm] from [Dapper].[dbo].[Participantes]";
+                string query = ParticipanteScript.GetAll;
                 List<Participante> participantes = (await conexao.QueryAsync<Participante>(sql: query)).ToList();
 
                 return await Task.FromResult(PagedList<Participante>.ToPagedList(participantes.AsQueryable(), parametersPalavraChave.NumeroPagina, parametersPalavraChave.ResultadosExibidos));

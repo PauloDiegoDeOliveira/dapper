@@ -2,5 +2,20 @@
 {
     public class ParticipanteScript
     {
+        public static string GetAll
+        {
+            get
+            {
+                return @"SELECT DISTINCT
+                                ID,
+                                NOME,
+                                SOBRENOME,
+                                CPF,
+                                STATUS,
+                                CRIADOEM,
+                                ALTERADOEM
+                        FROM Participantes";
+            }
+        }
     }
 }
