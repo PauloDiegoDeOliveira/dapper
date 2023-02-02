@@ -1,4 +1,4 @@
-﻿namespace Empresa.Dapper.Infrastructure.Data.Repositorys.ScriptsSql
+﻿namespace Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql
 {
     public class ParticipanteScript
     {

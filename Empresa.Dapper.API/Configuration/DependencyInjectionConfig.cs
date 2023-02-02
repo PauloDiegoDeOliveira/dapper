@@ -5,7 +5,7 @@ using Empresa.Dapper.Domain.Core.Interfaces.Repositories;
 using Empresa.Dapper.Domain.Core.Interfaces.Service;
 using Empresa.Dapper.Domain.Core.Notificacoes;
 using Empresa.Dapper.Domain.Services;
-using Empresa.Dapper.Infrastructure.Data.Repositorys;
+using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
 

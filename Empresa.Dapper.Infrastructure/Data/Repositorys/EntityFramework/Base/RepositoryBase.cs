@@ -2,7 +2,7 @@
 using Empresa.Dapper.Domain.Entitys.Base;
 using Microsoft.EntityFrameworkCore;
 
-namespace Empresa.Dapper.Infrastructure.Data.Repositorys.Base
+namespace Empresa.Dapper.Infrastructure.Data.Repositorys.EntityFramework.Base
 {
     public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : EntityBase
     {
