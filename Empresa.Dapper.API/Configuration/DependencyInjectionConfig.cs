@@ -6,9 +6,6 @@ using Empresa.Dapper.Domain.Core.Interfaces.Service;
 using Empresa.Dapper.Domain.Core.Notificacoes;
 using Empresa.Dapper.Domain.Services;
 using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper;
-using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Base;
-using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Participante;
-using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Produto;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -25,10 +22,6 @@ namespace Empresa.Dapper.API.Configuration
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<IProdutoApplication, ProdutoApplication>();
             services.AddScoped<IProdutoService, ProdutoService>();
-
-
-            services.AddTransient<IDapperScriptBase, ProdutoScript>();
-            services.AddTransient<IDapperScriptBase, ParticipanteScript>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

@@ -1,30 +1,22 @@
-﻿using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Base;
-
-namespace Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Produto
+﻿namespace Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Produto
 {
-    public class ProdutoScript : IDapperScriptBase
+    public class ProdutoScript
     {
-        public string GetAll()
-        {
-            return @"Select distinct
-                            id,
-                            Nome,
-                            Status,
-                            CriadoEm,
-                            AlteradoEm
-                         From Produtos";
-        }
+        public const string GetAll = @"Select distinct
+                                              id,
+                                              Nome,
+                                              Status,
+                                              CriadoEm,
+                                              AlteradoEm
+                                          From Produtos";
 
-        public string GetById()
-        {
-            return @"Select distinct
-                            id,
-                            Nome,
-                            Status,
-                            CriadoEm,
-                            AlteradoEm
-                      From Produtos
-                        Where id = @id";
-        }
+        public const string GetById = @"Select distinct
+                                                id,
+                                                Nome,
+                                                Status,
+                                                CriadoEm,
+                                                AlteradoEm
+                                          From Produtos
+                                            Where id = @id";
     }
 }

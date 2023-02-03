@@ -1,34 +1,26 @@
-﻿using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Base;
-
-namespace Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Participante
+﻿namespace Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Participante
 {
-    public class ParticipanteScript : IDapperScriptBase
+    public class ParticipanteScript
     {
-        public string GetAll()
-        {
-            return @"Select distinct
-                            id,
-                            Nome,
-                            Sobrenome,
-                            cpf,
-                            Status,
-                            CriadoEm,
-                            AlteradoEm
-                       From Participantes";
-        }
+        public const string GetAll = @"Select distinct
+                                              id,
+                                              Nome,
+                                              Sobrenome,
+                                              cpf,
+                                              Status,
+                                              CriadoEm,
+                                              AlteradoEm
+                                           From Participantes";
 
-        public string GetById()
-        {
-            return @"Select distinct
-                            id,
-                            Nome,
-                            Sobrenome,
-                            cpf,
-                            Status,
-                            CriadoEm,
-                            AlteradoEm
-                     From Participantes
-                        Where id = @id";
-        }
+        public const string GetById = @"Select distinct
+                                               id,
+                                               Nome,
+                                               Sobrenome,
+                                               cpf,
+                                               Status,
+                                               CriadoEm,
+                                               AlteradoEm
+                                         From Participantes
+                                            Where id = @id";
     }
 }

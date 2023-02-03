@@ -3,20 +3,24 @@ using Empresa.Dapper.Domain.Core.Interfaces.Repositories;
 using Empresa.Dapper.Domain.Entitys;
 using Empresa.Dapper.Domain.Enums;
 using Empresa.Dapper.Domain.Pagination;
-using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.Base;
-using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Base;
-using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Participante;
 using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Produto;
+using Empresa.Dapper.Infrastructure.Data.Repositorys.EntityFramework.Base;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper
 {
-    public class ProdutoRepository : RepositoryDapperBase<Produto>, IProdutoRepository
+    public class ProdutoRepository : RepositoryBase<Produto>, IProdutoRepository
     {
-        public ProdutoRepository(IConfiguration configuration, IDapperScriptBase script) : base(configuration, script)
+        private readonly AppDbContext appDbContext;
+        protected readonly SqlConnection conexaoSql;
+
+        public ProdutoRepository(AppDbContext appDbContext,
+                                 IConfiguration configuration) : base(appDbContext)
         {
-            script = script as ProdutoScript;
+            this.appDbContext = appDbContext;
+            conexaoSql = new SqlConnection(configuration.GetConnectionString("Connection"));
         }
 
         public override Task<IEnumerable<Produto>> GetAllAsync()
@@ -32,7 +36,7 @@ namespace Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper
 
                 using (conexaoSql)
                 {
-                    IQueryable<Produto> produtos = (await conexaoSql.QueryAsync<Produto>(new ProdutoScript().GetAll())).AsQueryable();
+                    IQueryable<Produto> produtos = (await conexaoSql.QueryAsync<Produto>(ProdutoScript.GetAll)).AsQueryable();
 
                     if (parametersPalavraChave.PalavraChave is null && parametersPalavraChave.Id is null && parametersPalavraChave.Status is 0)
                         produtos = produtos.Where(produto => produto.Status != EStatus.Excluido.ToString());
