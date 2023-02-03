@@ -6,8 +6,6 @@ using Empresa.Dapper.Domain.Pagination;
 using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.Base;
 using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Base;
 using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Participante;
-using Empresa.Dapper.Infrastructure.Data.Repositorys.EntityFramework.Base;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
