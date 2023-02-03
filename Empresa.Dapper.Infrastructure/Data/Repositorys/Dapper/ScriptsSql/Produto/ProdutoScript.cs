@@ -1,8 +1,8 @@
 ﻿using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Base;
 
-namespace Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Participante
+namespace Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Produto
 {
-    public class ParticipanteScript : IDapperScriptBase
+    public class ProdutoScript : IDapperScriptBase
     {
         public string GetAll()
         {
@@ -14,7 +14,7 @@ namespace Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Parti
                             Status,
                             CriadoEm,
                             AlteradoEm
-                       From Participantes";
+                         From Produtos";
         }
 
         public string GetById()
@@ -27,7 +27,7 @@ namespace Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Parti
                             Status,
                             CriadoEm,
                             AlteradoEm
-                     From Participantes
+                      From Produtos
                         Where id = @id";
         }
     }

@@ -8,6 +8,7 @@ using Empresa.Dapper.Domain.Services;
 using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper;
 using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Base;
 using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Participante;
+using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Produto;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -20,9 +21,12 @@ namespace Empresa.Dapper.API.Configuration
             services.AddScoped<IParticipanteRepository, ParticipanteRepository>();
             services.AddScoped<IParticipanteApplication, ParticipanteApplication>();
             services.AddScoped<IParticipanteService, ParticipanteService>();
-
             services.AddScoped<IDapperScriptBase, ParticipanteScript>();
 
+            services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped<IProdutoApplication, ProdutoApplication>();
+            services.AddScoped<IProdutoService, ProdutoService>();
+            services.AddScoped<IDapperScriptBase, ProdutoScript>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
