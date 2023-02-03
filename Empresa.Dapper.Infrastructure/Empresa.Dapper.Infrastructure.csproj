@@ -27,8 +27,4 @@
     <ProjectReference Include="..\Empresa.Dapper.Domain\Empresa.Dapper.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\Repositorys\Dapper\Base\" />
-  </ItemGroup>
-
 </Project>

@@ -29,6 +29,29 @@ namespace Empresa.Dapper.API.V1.Controllers
             this.logger = logger;
         }
 
+
+        /// <summary>
+        /// Retorna todos os participantes com filtro e paginação de dados.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("teste")]
+        [ProducesResponseType(typeof(ViewPagedListDto<Participante, ViewParticipanteDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetAllAsync()
+        {
+            logger.LogWarning("Foi requisitado os participantes.");
+
+            IEnumerable<ViewParticipanteDto> cargos = await participanteApplication.GetAllAsync();
+
+            if (cargos is null)
+            {
+                NotificarErro("Nenhum participante foi encontrado.");
+                return CustomResponse(ModelState);
+            }
+
+            return CustomResponse(cargos, "Participantes encontrados.");
+        }
+
         /// <summary>
         /// Retorna todos os participantes com filtro e paginação de dados.
         /// </summary>

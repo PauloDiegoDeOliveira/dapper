@@ -3,7 +3,9 @@ using Empresa.Dapper.Domain.Core.Interfaces.Repositories;
 using Empresa.Dapper.Domain.Entitys;
 using Empresa.Dapper.Domain.Enums;
 using Empresa.Dapper.Domain.Pagination;
-using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql;
+using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.Base;
+using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Base;
+using Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Participante;
 using Empresa.Dapper.Infrastructure.Data.Repositorys.EntityFramework.Base;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -11,18 +13,16 @@ using Microsoft.Extensions.Configuration;
 
 namespace Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper
 {
-    public class ParticipanteRepository : RepositoryBase<Participante>, IParticipanteRepository
+    public class ParticipanteRepository : RepositoryDapperBase<Participante>, IParticipanteRepository
     {
-        private readonly AppDbContext appDbContext;
-        private IConfiguration configuration;
-        protected readonly SqlConnection conexaoSql;
-
-        public ParticipanteRepository(AppDbContext appDbContext,
-                                      IConfiguration configuration) : base(appDbContext)
+        public ParticipanteRepository(IConfiguration configuration, IDapperScriptBase script) : base(configuration, script)
         {
-            this.appDbContext = appDbContext;
-            this.configuration = configuration;
-            conexaoSql = new SqlConnection(configuration.GetConnectionString("Connection"));
+            script = script as ParticipanteScript;
+        }
+
+        public override Task<IEnumerable<Participante>> GetAllAsync()
+        {
+            return base.GetAllAsync();
         }
 
         public async Task<PagedList<Participante>> GetPaginationAsync(ParametersPalavraChave parametersPalavraChave)
@@ -33,7 +33,7 @@ namespace Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper
 
                 using (conexaoSql)
                 {
-                    IQueryable<Participante> participantes = (await conexaoSql.QueryAsync<Participante>(ParticipanteScript.GetAll)).AsQueryable();
+                    IQueryable<Participante> participantes = (await conexaoSql.QueryAsync<Participante>(new ParticipanteScript().GetAll())).AsQueryable();
 
                     if (parametersPalavraChave.PalavraChave is null && parametersPalavraChave.Id is null && parametersPalavraChave.Status is 0)
                         participantes = participantes.Where(participante => participante.Status != EStatus.Excluido.ToString());
