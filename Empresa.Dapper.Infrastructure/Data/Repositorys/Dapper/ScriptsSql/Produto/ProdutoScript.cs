@@ -9,8 +9,6 @@ namespace Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Produ
             return @"Select distinct
                             id,
                             Nome,
-                            Sobrenome,
-                            cpf,
                             Status,
                             CriadoEm,
                             AlteradoEm
@@ -22,8 +20,6 @@ namespace Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper.ScriptsSql.Produ
             return @"Select distinct
                             id,
                             Nome,
-                            Sobrenome,
-                            cpf,
                             Status,
                             CriadoEm,
                             AlteradoEm

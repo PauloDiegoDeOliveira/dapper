@@ -16,7 +16,7 @@ namespace Empresa.Dapper.Infrastructure.Data.Repositorys.Dapper
     {
         public ProdutoRepository(IConfiguration configuration, IDapperScriptBase script) : base(configuration, script)
         {
-            script = script as ParticipanteScript;
+            script = script as ProdutoScript;
         }
 
         public override Task<IEnumerable<Produto>> GetAllAsync()

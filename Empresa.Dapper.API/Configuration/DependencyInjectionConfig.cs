@@ -21,12 +21,14 @@ namespace Empresa.Dapper.API.Configuration
             services.AddScoped<IParticipanteRepository, ParticipanteRepository>();
             services.AddScoped<IParticipanteApplication, ParticipanteApplication>();
             services.AddScoped<IParticipanteService, ParticipanteService>();
-            services.AddScoped<IDapperScriptBase, ParticipanteScript>();
 
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<IProdutoApplication, ProdutoApplication>();
             services.AddScoped<IProdutoService, ProdutoService>();
-            services.AddScoped<IDapperScriptBase, ProdutoScript>();
+
+
+            services.AddTransient<IDapperScriptBase, ProdutoScript>();
+            services.AddTransient<IDapperScriptBase, ParticipanteScript>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
